@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASCII Art Generator</title>
+    <style>
+        body {
+            background-color: darkviolet;
+            text-align: center;
+            margin-top: 300px;
+        }
+        button {
+            margin-left: 150px;
+        } 
+        
+        .contener {
+    width: 50%; /* ou la largeur souhaitée */
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre de boîte avec une légère transparence */
+    padding: 20px; /* Espacement intérieur pour le contenu */
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="contener">
+        <h1>ASCII Art Generator</h1>
+    <form action="/ascii-art" method="post">
+        <label for="fonts">Choisir une bannière:</label>
+        <select id="fonts" name="fonts">
+            <option value="standard">Standard</option>
+            <option value="shadow">Shadow</option>
+            <option value="thinkertoy">Thinkertoy</option>
+        </select>
+        <br>
+        <label for="text-area">Entrer le texte:</label>
+        <textarea id="text-area" name="text-area"></textarea>
+        <br>
+        <button type="submit">Envoyer</button>
+    </form>
+    {{if .Result}}
+    <h2>Générer Art ASCII:</h2>
+    <pre>{{.Result}}</pre>
+    <a href="/download">Télécharger Art ASCII </a>
+    {{end}}
+    </div>
+</body>
+</html>
